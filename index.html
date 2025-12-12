@@ -1,244 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DANCING PETER!</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('https://i.pinimg.com/736x/0c/8a/91/0c8a91931986c725c28b940bdb1adba6.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dancing Peter – Play Fortnite</title>
 
-    .container {
-      width: 100%;
-      background: rgba(0,0,0,0.85);
-      border-radius: 12px;
-      overflow: hidden;
-      padding: 15px;
-      box-sizing: border-box;
-    }
+    <style>
+        body {
+            background: #0b0b0b;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            color: white;
+        }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+        .button {
+            background: #4c67ff;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-    .creator {
-      color: #ffe74c;
-      cursor: pointer;
-      display: block;
-      text-align: center;
-      margin-bottom: 15px;
-      text-decoration: none;
-    }
-
-    .tags {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #222;
-      padding: 5px 10px;
-      margin: 3px;
-      border-radius: 6px;
-      font-size: 12px;
-    }
-
-    .desc {
-      font-size: 14px;
-      line-height: 1.5;
-      white-space: pre-line;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .more {
-      color: #4fc3f7;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .info {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 13px;
-      color: #ccc;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .btn-play {
-      background: #ffe74c;
-      border: none;
-      color: black;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 10px 0;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .copy-code {
-      background: #333;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      display: inline-block;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: space-around;
-      font-size: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer span {
-      cursor: pointer;
-    }
-
-    .thumbnail {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    /* Rotate overlay for portrait devices if needed */
-    #rotateOverlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.95);
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-      padding-top: 40%;
-      z-index: 9999;
-    }
-  </style>
+        .button:hover {
+            background: #3549d5;
+        }
+    </style>
 </head>
 <body>
 
-<div id="rotateOverlay">Please rotate your device to landscape for the best experience!</div>
+    <h1>Dancing Peter</h1>
+    <p>Press play to launch Fortnite and load the island automatically.</p>
 
-<div class="container">
-  <h1>Dancing Family Guy</h1>
-  <a class="creator" href="https://fortnite.gg/creator?name=daxipaxi" target="_blank">By DaxiPaxi</a>
+    <!-- THE PLAY BUTTON -->
+    <button class="button" onclick="playFortnite()">Play Now</button>
 
-  <div class="thumbnail-container">
-    <img class="thumbnail" src="https://cdn-0001.qstv.on.epicgames.com/ItlGTREWPpJWkcyPob/image/landscape_comp.jpeg" alt="Thumbnail" />
-  </div>
-
-  <div class="tags">
-    <span class="tag">JUST FOR FUN</span>
-    <span class="tag">SHOW</span>
-    <span class="tag">FUNNY</span>
-    <span class="tag">MEMES</span>
-  </div>
-
-  <div class="desc" id="desc">
-    Dancing Family Guy
-    Peter Griffin showing his talented dance moves !
-    <span class="more" onclick="toggleDesc()">...more</span>
-  </div>
-
-  <div class="info">
-    <div><strong>CREATED IN:</strong> UEFN</div>
-    <div><strong>RELEASE DATE:</strong> Sep 29, 2025</div>
-    <div><strong>LAST UPDATE:</strong> Oct 20, 2025</div>
-    <div><strong>MAX PLAYERS:</strong> 16</div>
-    <div><strong>AGE RATING:</strong> Everyone / 3</div>
-    <div><strong>XP STATUS:</strong> Awarding XP</div>
-  </div>
-
-  <button class="btn-play" onclick="window.open('https://fortnite.com/play/island/1249-3448-5110', '_blank')">PLAY NOW</button>
-  <div class="copy-code" onclick="copyCode()">1249-3448-5110</div>
-
-  <div class="footer">
-    <span onclick="shareLink()">🔗 Share</span>
-    <span onclick="openAlertPopup()">🔔 Create Alert</span>
-    <span onclick="window.open('https://bit.ly/Discordcool', '_blank')">🌐 Discord!</span>
-  </div>
-</div>
 
 <script>
-  // Description toggle
-  let isExpanded = false;
-  function toggleDesc() {
-    const desc = document.getElementById("desc");
-    if (!isExpanded) {
-      desc.innerHTML = `Dancing Family Guy
-Peter Griffin showing his talented dance moves !
+function playFortnite() {
 
-COMING SOON! - Explore the Family Guy House!
+    // 1️⃣ Attempt to launch Fortnite using Epic Games Launcher
+    window.location.href =
+        "com.epicgames.launcher://apps/Fortnite?action=launch&silent=true&args=-EpicPortal&args=-IslandOverride=1832-0431-4852";
 
-Have fun!
-Have fun!
-Have fun!`;
-      isExpanded = true;
-    }
-  }
-
-  function copyCode() {
-    navigator.clipboard.writeText("1249-3448-5110").then(() => {
-      alert("Copied: 1249-3448-5110");
-    });
-  }
-
-  function shareLink() {
-    if (navigator.share) {
-      navigator.share({
-        title: "Dancing Family Guy",
-        url: "https://bit.ly/DancingPeter"
-      }).catch(console.error);
-    } else {
-      alert("Sharing not supported on this browser.");
-    }
-  }
-
-  function openAlertPopup() {
-    window.open(
-      "https://fortnite.gg/account?create&goto=island%3Fcode%3D1249-3448-5110%26alert",
-      "alertWindow",
-      "width=500,height=700"
-    );
-  }
-
-  // Landscape warning
-  function checkOrientation() {
-    const overlay = document.getElementById('rotateOverlay');
-    if(window.innerHeight > window.innerWidth){
-      overlay.style.display = 'block';
-    } else {
-      overlay.style.display = 'none';
-    }
-  }
-
-  window.addEventListener('resize', checkOrientation);
-  window.addEventListener('load', checkOrientation);
+    // 2️⃣ Open your DownloadOrNot check page in a NEW TAB
+    window.open("https://dagurspelar.github.io/DownloadOrNot/", "_blank");
+}
 </script>
 
 </body>
