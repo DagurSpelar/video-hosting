@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dancing Peter – Launch Fortnite</title>
-    <style>
-        body {
-            background: #0b0b0b;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 80px;
-            color: white;
-        }
-        h1 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-        .button {
-            border: none;
-            padding: 18px 40px;
-            border-radius: 12px;
-            font-size: 22px;
-            cursor: pointer;
-            transition: 0.2s;
-            margin: 10px 0;
-        }
-        .play-button {
-            background: #ffe74c;
-            color: black;
-        }
-        .play-button:hover {
-            background: #ffdf4d;
-        }
-        .download-button {
-            background: #4c67ff;
-            color: white;
-        }
-        .download-button:hover {
-            background: #3549d5;
-        }
-        .bottom-text {
-            margin-top: 30px;
-            font-size: 16px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Dancing Peter – Launch Island</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #0b0b0b;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    .button {
+      background: #ffe74c;
+      border: none;
+      padding: 18px 40px;
+      border-radius: 12px;
+      color: black;
+      font-size: 22px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: 0.2s;
+    }
+    .button:hover {
+      background: #ffd700;
+    }
+    .download-section {
+      margin-top: 40px;
+    }
+    .download-button {
+      background: #4c67ff;
+      border: none;
+      padding: 16px 35px;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .download-button:hover {
+      background: #3549d5;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Dancing Peter</h1>
-    <p>Press play to launch Fortnite and load the island automatically.</p>
+  <h1>Dancing Peter – Fortnite Island</h1>
+  <p>Press "Play Now" to open Fortnite and load the island automatically.</p>
 
-    <!-- PLAY NOW BUTTON -->
-    <button class="button play-button" onclick="launchFortnite()">Play Now</button>
+  <!-- PLAY NOW button that opens Fortnite directly -->
+  <a class="button fn-play-now" 
+     href="com.epicgames.launcher://apps/fn%3A4fe75bbc5a674f4f9b356b5c90567da5%3AFortnite?action=launch&amp;silent=true&amp;arg=-IslandOverride%3D1249-3448-5110" 
+     rel="noopener noreferrer">
+     Play Now
+  </a>
 
-    <div class="bottom-text">
-        Don't have Fortnite installed?
-    </div>
-    <!-- DOWNLOAD BUTTON -->
-    <button class="button download-button" onclick="downloadFortnite()">Download Fortnite</button>
-
-<script>
-function launchFortnite() {
-    // Only open the Epic Games Launcher with Fortnite
-    window.location.href =
-        "com.epicgames.launcher://apps/fn%3A4fe75bbc5a674f4f9b356b5c90567da5%3AFortnite?action=launch&amp;silent=true&amp;arg=-IslandOverride%3D1249-3448-5110";
-}
-
-function downloadFortnite() {
-    // Open the download page in a new tab
-    window.open("https://dagurspelar.github.io/DownloadOrNot/", "_blank");
-}
-</script>
+  <!-- DOWNLOAD section if user doesn't have Fortnite -->
+  <div class="download-section">
+    <p>Don't have Fortnite installed?</p>
+    <button class="download-button" onclick="window.open('https://dagurspelar.github.io/DownloadOrNot/', '_blank')">
+      Download Fortnite
+    </button>
+  </div>
 
 </body>
 </html>
-
-
