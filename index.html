@@ -1,55 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dancing Peter – Play Fortnite</title>
-
-    <style>
-        body {
-            background: #0b0b0b;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 80px;
-            color: white;
-        }
-
-        .button {
-            background: #4c67ff;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 12px;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .button:hover {
-            background: #3549d5;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>DANCING PETER!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://i.pinimg.com/736x/0c/8a/91/0c8a91931986c725c28b940bdb1adba6.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+    }
+    .left, .right {
+      padding: 20px;
+    }
+    .left {
+      width: 50%;
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .creator {
+      color: #ffe74c;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+    .tags {
+      margin-bottom: 20px;
+    }
+    .tag {
+      display: inline-block;
+      background: #222;
+      padding: 5px 12px;
+      margin-right: 5px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .desc {
+      font-size: 15px;
+      line-height: 1.6;
+      white-space: pre-line;
+      margin-bottom: 15px;
+    }
+    .more {
+      color: #4fc3f7;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .info {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #ccc;
+    }
+    .info-group {
+      width: 48%;
+    }
+    .info-group div {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .btn-play, .btn-download {
+      margin-top: 20px;
+      background: #ffe74c;
+      border: none;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 30px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-download {
+      background: #4fc3f7;
+      color: white;
+      margin-left: 0;
+    }
+    .copy-code {
+      background: #333;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .footer {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .footer span {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .thumbnail {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    hr {
+      margin: 30px 0;
+      border: none;
+      border-top: 1px solid #888;
+    }
+    .popup, .abuse-page, .install-tutorial {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-inner, .abuse-inner, .tutorial-inner {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      color: white;
+      text-align: center;
+      max-width: 400px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .popup-inner button, .abuse-inner button, .tutorial-inner button {
+      margin: 10px 5px 0 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .popup-inner .cancel, .abuse-inner .close-abuse, .tutorial-inner .close-tutorial {
+      background: #555;
+      color: white;
+    }
+    .popup-inner .ok, .abuse-inner .remind-me, .tutorial-inner .ok {
+      background: #4fc3f7;
+      color: white;
+    }
+    .abuse-list {
+      text-align: left;
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
+    }
+    .abuse-list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .tutorial-images img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .bottom-buttons {
+      margin-top: 25px;
+    }
+    .bottom-buttons .btn-play {
+      width: 100%;
+      text-align: center;
+    }
+    .bottom-buttons .copy-code {
+      margin-top: 10px;
+      width: fit-content;
+    }
+    .bottom-buttons .footer {
+      margin-top: 15px;
+      justify-content: start;
+      gap: 25px;
+    }
+    .download-section {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Dancing Peter</h1>
-    <p>Press play to launch Fortnite and load the island automatically.</p>
+<div class="container">
+  <div class="left">
+    <h1>Dancing Family Guy</h1>
+    <a class="creator" href="https://fortnite.gg/creator?name=daxipaxi" target="_blank">By DaxiPaxi</a>
 
-    <!-- THE PLAY BUTTON -->
-    <button class="button" onclick="playFortnite()">Play Now</button>
+    <div class="tags">
+      <span class="tag">JUST FOR FUN</span>
+      <span class="tag">SHOW</span>
+      <span class="tag">FUNNY</span>
+      <span class="tag">MEMES</span>
+    </div>
 
+    <div class="desc" id="desc">
+     Dancing Family Guy
+     Peter Griffin showing his talented dance moves !
+      <span class="more" onclick="toggleDesc()">...more</span>
+    </div>
+
+    <div class="info">
+      <div class="info-group">
+        <div><strong>CREATED IN:</strong> UEFN</div>
+        <div><strong>RELEASE DATE:</strong> Sep 29, 2025</div>
+        <div><strong>LAST UPDATE:</strong> Oct 20, 2025</div>
+      </div>
+      <div class="info-group">
+        <div><strong>MAX PLAYERS:</strong> 16</div>
+        <div><strong>AGE RATING:</strong> Everyone / 3</div>
+        <div><strong>XP STATUS:</strong> Awarding XP</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="bottom-buttons">
+      <!-- Play Now button -->
+      <button class="btn-play" onclick="playPopup()">PLAY NOW</button>
+      <div class="copy-code" onclick="copyCode()">1249-3448-5110</div>
+
+      <!-- Download Fortnite if not installed -->
+      <div class="download-section">
+        <p>Do you have Fortnite installed? If not, download Fortnite here:</p>
+        <button class="btn-download" onclick="downloadFortnite()">Download Fortnite</button>
+      </div>
+
+      <div class="footer">
+        <span onclick="shareLink()">🔗 Share</span>
+        <span onclick="openAlertPopup()">🔔 Create Alert</span>
+        <span onclick="window.open('https://bit.ly/Discordcool', '_blank')">🌐 Discord!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <img class="thumbnail" src="https://cdn-0001.qstv.on.epicgames.com/ItlGTREWPpJWkcyPob/image/landscape_comp.jpeg" alt="Thumbnail" />
+  </div>
+</div>
 
 <script>
-function playFortnite() {
+  let isExpanded = false;
+  function toggleDesc() {
+    const desc = document.getElementById("desc");
+    if (!isExpanded) {
+      desc.innerHTML = `Dancing Family Guy
+Peter Griffin showing his talented dance moves !
 
-    // 1️⃣ Attempt to launch Fortnite using Epic Games Launcher
-    window.location.href =
-        "com.epicgames.launcher://apps/Fortnite?action=launch&silent=true&args=-EpicPortal&args=-IslandOverride=1832-0431-4852";
+COMING SOON! - Explore the Family Guy House!
 
-    // 2️⃣ Open your DownloadOrNot check page in a NEW TAB
-    window.open("https://dagurspelar.github.io/DownloadOrNot/", "_blank");
-}
+Have fun!
+Have fun!
+Have fun!`;
+      isExpanded = true;
+    }
+  }
+
+  function copyCode() {
+    navigator.clipboard.writeText("1249-3448-5110").then(() => {
+      alert("Copied: 1249-3448-5110");
+    });
+  }
+
+  function shareLink() {
+    if (navigator.share) {
+      navigator.share({
+        title: "Dancing Family Guy",
+        url: "https://bit.ly/DancingPeter"
+      }).catch(console.error);
+    } else {
+      alert("Sharing not supported on this browser.");
+    }
+  }
+
+  function openAlertPopup() {
+    window.open(
+      "https://fortnite.gg/account?create&goto=island%3Fcode%3D1249-3448-5110%26alert",
+      "alertWindow",
+      "width=500,height=700"
+    );
+  }
+
+  // Play button opens TinyURL launch page
+  function playPopup() {
+    const launchPopup = window.open(
+      'https://TinyUrl.com/DancingPeterFortniteLaunch',
+      'launchPopup',
+      'width=900,height=700,top=100,left=100'
+    );
+
+    if (!launchPopup) {
+      if (confirm("Popup blocked! Press OK to open the launch page in the current tab.")) {
+        window.location.href = 'https://TinyUrl.com/DancingPeterFortniteLaunch';
+      }
+    }
+  }
+
+  // Download Fortnite button
+  function downloadFortnite() {
+    window.open('https://dagurspelar.github.io/DownloadOrNot/', '_blank');
+  }
 </script>
-
 </body>
 </html>
